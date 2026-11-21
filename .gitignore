@@ -1,0 +1,16 @@
+# 本地状态与运行时文件
+etc/proxy.env
+etc/mihomo.yaml
+etc/fw.nft
+etc/warp.conf
+etc/wgcf-profile.conf
+etc/custom-proxies.yaml
+etc/country.mmdb
+etc/geosite.dat
+run/
+*.log
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+*.swp
