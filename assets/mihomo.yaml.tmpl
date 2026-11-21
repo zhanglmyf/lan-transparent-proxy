@@ -1,0 +1,50 @@
+# mihomo 通用配置模板。占位符由 render.sh 替换。
+port: 0
+socks-port: 0
+mixed-port: @@MIXED_PORT@@
+redir-port: @@REDIR_PORT@@
+tproxy-port: @@TPROXY_PORT@@
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+external-controller: 0.0.0.0:@@API_PORT@@
+secret: "@@API_SECRET@@"
+ipv6: false
+geodata-mode: true
+tcp-concurrent: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:@@DNS_PORT@@
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - localhost
+    - time.*.com
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 223.5.5.5
+    - 114.114.114.114
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+proxies:
+@@PROXIES@@
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies:
+@@PROXY_MEMBERS@@
+
+rules:
+@@RULES@@

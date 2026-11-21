@@ -1,0 +1,12 @@
+  - name: WARP
+    type: wireguard
+    server: @@WG_HOST@@
+    port: @@WG_PORT@@
+    private-key: "@@WG_PRIV@@"
+    public-key: "@@WG_PUB@@"
+    peer-public-key: "@@WG_PEER@@"
+    ip: @@WG_IP@@
+    mtu: @@WG_MTU@@
+    allowed-ips: ["0.0.0.0/0", "::/0"]
+    remote-dns-resolve: false
+    routing-mark: @@WG_FWMARK@@

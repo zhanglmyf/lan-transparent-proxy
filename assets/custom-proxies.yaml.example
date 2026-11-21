@@ -1,0 +1,24 @@
+# LP_MODE=custom 时，把本文件复制为 $LP_BASE/etc/custom-proxies.yaml
+# 按照 mihomo 的 proxies 语法填写；节点名要与 proxy.env 的
+# LP_CUSTOM_PROXY_NAMES 一致（多个用空格分隔）。
+#
+# 示例：
+#  - name: MyProxy
+#    type: ss
+#    server: 1.2.3.4
+#    port: 8388
+#    cipher: aes-256-gcm
+#    password: "your-password"
+#    udp: true
+#
+#  - name: Another
+#    type: https
+#    server: example.com
+#    port: 443
+#    username: user
+#    password: pass
+#
+# 注意：
+#  1. 本文件里的内容会被原样插入到 mihomo.yaml 的 proxies: 段下面，
+#     所以每个节点条目的缩进必须是两个空格开头（"  - name: ..."）。
+#  2. 把节点 IP/域名段加入 LP_UPSTREAM_CIDRS，避免自己劫持自己的上游。
