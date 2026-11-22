@@ -15,6 +15,8 @@ agent_created: true
 
 上游默认 Cloudflare WARP（免费），也可切换为任意 mihomo 支持的自定义节点。所有接口、网段、端口、路由表、隧道参数均来自配置文件，脚本本身不含设备特定硬编码。
 
+**平台边界（先判断再动手）**：本方案跑在**能 root 的 Linux 网关**上——OpenWrt/iStoreOS、x86/ARM Linux（Debian/Ubuntu）为完整支持；群晖等 NAS 降级为显式代理。**普通家用路由器原厂固件与 Windows 不支持**（无 root / 无 Docker / 无内核 WireGuard / 非 POSIX 环境），它们只能当被服务的客户端，或改用「旁路由 + 一台 Linux 设备」的混合部署。完整判据见 `references/platform-matrix.md` 第 0 节。
+
 ## 何时使用
 
 - 用户要求「整网代理 / 旁路由 / 透明代理 / 网关代理 / WARP 网关」

@@ -9,10 +9,22 @@
 
 ## 0. 适用范围与前提
 
+**平台准入（先判断，不满足就别往下走）**：
+
+| 平台 | 支持 | 处理 |
+|------|------|------|
+| OpenWrt / iStoreOS / 衍生版 | ✅ 完整 | 正常执行本文件全部步骤 |
+| x86 / ARM + Debian/Ubuntu Linux | ✅ 完整 | 正常执行 |
+| 群晖 / 威联通等 NAS | ⚠️ 降级 | 设 `LP_FW_ENABLED=0`，只提供显式代理 |
+| 普通家用路由器原厂固件 | ❌ 不支持 | 刷 OpenWrt，或改用旁路由 + 一台 Linux 设备 |
+| Windows / macOS | ❌ 不支持 | 只能作为客户端；不要在它上面跑本方案 |
+| WSL / Docker 容器内 | ❌ 不支持 | 必须跑在宿主 |
+
 - **在操作目标网关设备上执行**，不是管理用的 Windows/Mac/PC。
 - 需要 root。
 - 依赖：`docker`、`iproute2`、`nftables`（或 `iptables`）、`curl`；WARP 模式另需 `wireguard-tools` 与内核 WireGuard 模块。
 - 若设备不支持透明代理（例如群晖 NAS），设 `LP_FW_ENABLED=0`，只提供显式代理。
+- 完整平台矩阵见 `references/platform-matrix.md` 第 0 节。
 
 ## 1. 决策树（先判断拓扑，再动手）
 
