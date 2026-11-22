@@ -1,5 +1,7 @@
 # lan-transparent-proxy
 
+[![Stars](https://img.shields.io/github/stars/zhanglmyf/lan-transparent-proxy?style=social)](https://github.com/zhanglmyf/lan-transparent-proxy/stargazers)
+
 一套**通用、可自愈、拿来即用**的局域网透明代理部署方案。把任意一台常开的 Linux 网关设备（OpenWrt / iStoreOS 软路由、小主机、NAS、Debian 服务器）变成整网代理出口。
 
 不绑定任何特定品牌、IP 段或端口：接口、网段、网关、端口、路由表、隧道参数全部由 `etc/proxy.env` 驱动，自动探测生成，随时可改。
@@ -155,6 +157,13 @@ docker logs -f lan-proxy        # 看 mihomo 日志
 - 远程 SSH 部署时，脚本会把 SSH 客户端源 IP 自动加入排除列表。手工修改 `LP_EXCLUDE_IPS` 时请勿删掉它。
 - 目标是内网 localhost/回环地址的流量**不应该**走代理（手机 App 常见坑）：私网与回环已在默认排除列表中；如仍有问题，在客户端侧补充 `127.0.0.0/8` 与本地网段绕过。
 - 面板默认监听 `0.0.0.0`，请修改 `LP_API_SECRET`，并避免把管理端口暴露到公网。
+
+## 相关项目
+
+- [xiaomi-speaker-workbuddy-bridge](https://github.com/zhanglmyf/xiaomi-speaker-workbuddy-bridge) — 把任意小米/小爱音箱接入 AI 语音助手
+- [dsh-universal-installer](https://github.com/zhanglmyf/dsh-universal-installer) — 跨平台部署 DeepSeek Harness
+- [dsh-free-model-bridge](https://github.com/zhanglmyf/dsh-free-model-bridge) — 让 DSH 自动加载免费云端模型
+- [lan-transparent-proxy](https://github.com/zhanglmyf/lan-transparent-proxy)**（当前项目）** — 局域网透明代理一键部署
 
 ## License
 
